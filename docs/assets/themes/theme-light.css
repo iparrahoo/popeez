@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+  color: #1A202C;
+  font-family: "Roboto", "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.primary {
+  color: #fa8072;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.main {
+  padding: 16px 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.txtpop {
+  padding: 13px;
+  background-color: #f6f6f6;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 8px;
+  min-width: 250px;
+  transition: all 300ms;
+}
+.txtpop:focus {
+  background-color: transparent;
+  border-color: #fa8072;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #fa8072 !important;
+}
+
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #fa8072 !important;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 32px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+.logo-title__logo {
+  height: 70px;
+}
+.logo-title__title {
+  font-family: "Poppins", "Roboto", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+.logo-title__title span {
+  font-family: "Poppins", "Roboto", sans-serif;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
+.footer-container {
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", "Roboto", sans-serif;
+  padding: 32px;
+}
+
+.report-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  row-gap: 32px;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 16px;
+}
+.report-form .form-group label {
+  min-width: 123px;
+  text-align: right;
+}
+.report-form .txtpop {
+  min-width: 250px;
+}
+
+.tbl-students {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.tbl-students__col-student {
+  cursor: pointer;
+}
+
+.tbl-students__col-gender {
+  width: 1%;
+  text-align: center;
+}
+
+.tbl-students__gender {
+  width: 20px;
+}
+
+.tbl-students__footer-total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.tbl-students__footer-no-student {
+  text-align: center;
+}
+
+.report-op-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 16px 0 16px;
+  column-gap: 16px;
+}
+
+.report-op-container__txt-search {
+  padding: 13px;
+  background-color: #f6f6f6;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 8px;
+  min-width: 250px;
+  transition: all 300ms;
+}
+.report-op-container__txt-search:focus {
+  background-color: transparent;
+  border-color: #fa8072;
+}
+
+.dropzone-excel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 2px dashed #21a366;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: border 300ms;
+}
+.dropzone-excel__logo {
+  width: 30px;
+  margin-right: 4px;
+}
+.dropzone-excel label {
+  color: #21a366;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.dropzone-excel input[type=file] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.dropzone-excel:hover {
+  border: 2px solid #21a366;
+}
+
+@media screen and (max-width: 444px) {
+  .report-form .form-group {
+    justify-content: flex-start;
+  }
+  .report-form .form-group label {
+    text-align: left;
+  }
+}
