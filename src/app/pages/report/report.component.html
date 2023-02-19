@@ -1,0 +1,89 @@
+<div class="report-container">
+
+    <form class="report-form">
+
+        <div class="form-group">
+            <label>Grade: </label>
+            <input class="txtpop" type="number"/>
+        </div>
+
+        <div class="form-group">
+            <label>Section: </label>
+            <input class="txtpop" type="text"/>
+        </div>
+
+        <div class="form-group">
+            <label>Subject: </label>
+            <input class="txtpop" type="text" value="English"/>
+        </div>
+
+        <div class="form-group">
+            <label>Topic(s) covered: </label>
+            <input class="txtpop" type="text"/>
+        </div>
+
+    </form>
+
+    <table mat-table
+           matSort
+           class="tbl-students"
+           [dataSource]="dataSource">
+
+        <ng-container matColumnDef="report-operations">
+            <td mat-header-cell *matHeaderCellDef colspan="3">
+                <div class="report-op-container">
+
+                    <input class="report-op-container__txt-search"
+                           placeholder="Search..."
+                           type="text"
+                           (keyup)="applyFilter($event)"
+                           *ngIf="students.length"/>
+
+                    <div class="dropzone-excel" *ngIf="!students.length">
+                        <img class="dropzone-excel__logo" src="assets/svgs/excel-svgrepo-com.svg"/>
+                        <label>Import from excelsheet</label>
+                        <input type="file" (change)="readExcelSheet($event)"/>
+                    </div>
+
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Present Column. -->
+        <ng-container matColumnDef="present">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Present </th>
+            <td mat-cell *matCellDef="let student">
+                <mat-checkbox [(ngModel)]="student.present"></mat-checkbox>
+            </td>
+        </ng-container>
+
+        <!-- Name Column. -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+            <td mat-cell class="tbl-students__col-student" *matCellDef="let student" (click)="setPresent(student)"> {{student.name}} </td>
+        </ng-container>
+
+        <!-- Gender Column. -->
+        <ng-container matColumnDef="male">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Gender </th>
+            <td mat-cell class="tbl-students__col-gender" *matCellDef="let student">
+                <img class="tbl-students__gender" src="assets/svgs/male-sign-svgrepo-com.svg" *ngIf="student.male">
+                <img class="tbl-students__gender" src="assets/svgs/female-sign-svgrepo-com.svg" *ngIf="!student.male">
+            </td>
+        </ng-container>
+
+        <!-- Footer column -->
+        <ng-container matColumnDef="total_students">
+            <td mat-footer-cell *matFooterCellDef colspan="3">
+                <div class="tbl-students__footer-total" *ngIf="students.length">Total students: {{students.length}}</div>
+                <div class="tbl-students__footer-no-student" *ngIf="!students.length">😶‍🌫️ No student found.</div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['report-operations']"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="['total_students']"></tr>
+    </table>
+
+</div>
